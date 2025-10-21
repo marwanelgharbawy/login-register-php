@@ -9,14 +9,16 @@
     <h2 id="form_title">Login</h2>
     <form action="form.php" method="post">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
+        <input type="text" id="email" name="email"><br> 
         
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
+        <input type="password" id="password" name="password"><br>
 
         <!-- This hidden input is for form submission identification -->
         <!-- It's sent with the POST request to form.php -->
         <input type="hidden" id="action_type" name="action" value="login">
+
+        <div id="error_message"></div>
 
         <input type="submit" id="submit_button" name="login" value="Login">
     </form>
@@ -25,6 +27,6 @@
         Don't have an account? <a href="register.html">Register</a>
     </div>
 
-    <script src="login.js"></script>
+    <script src="validation.js"></script>
 </body>
 </html>
