@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+<body>
+    <h2 id="form_title">Login</h2>
+    <form action="form.php" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <!-- This hidden input is for form submission identification -->
+        <!-- It's sent with the POST request to form.php -->
+        <input type="hidden" id="action_type" name="action" value="login">
+
+        <input type="submit" id="submit_button" name="login" value="Login">
+    </form>
+
+    <div id="switch_container">
+        Don't have an account? <a href="register.html">Register</a>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
