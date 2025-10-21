@@ -11,11 +11,13 @@ if ($connection->connect_error) {
     die("Connection failed: " . $connection->connect_error);
 }
 
-// Name is only used for registration
+// Name and confirm password are only used for registration
+// Retrieve the mutual data first
 $email = $_POST['email'];
 $password = $_POST['password'];
-// Confirm password only for registration
 $action = $_POST['action']; 
+
+$encryptedpassword = md5($password);
 
 // Register: validate then insert data
 if ($action === 'register') {
@@ -29,7 +31,7 @@ if ($action === 'register') {
         } else {
             // Safe to insert new user into the table
             $name = $_POST['name'];
-            $insertquery = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+            $insertquery = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$encryptedpassword')";
             if ($connection->query($insertquery) === TRUE) {
                 echo "Registration successful. Welcome $name!";
             } else {
@@ -41,7 +43,7 @@ if ($action === 'register') {
     }
 // Login: validate then get data
 } else if ($action === 'login') {
-    $checkquery = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $checkquery = "SELECT * FROM users WHERE email='$email' AND password='$encryptedpassword'";
     $checkresult = $connection->query($checkquery);
 
     if ($checkresult->num_rows > 0) {
