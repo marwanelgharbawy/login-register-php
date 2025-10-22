@@ -1,0 +1,23 @@
+html {
+    margin: 0 auto;
+    max-width: fit-content;
+}
+
+.container {
+    border: 2px solid black;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#error_message {
+    color: red;
+    margin-bottom: 10px;
+}
