@@ -19,5 +19,10 @@ input {
 
 #error_message {
     color: red;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+#switch_container {
+    text-align: center;
+    margin-top: 15px;
 }
